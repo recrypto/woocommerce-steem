@@ -8,6 +8,9 @@ Accept Steem payments directly to your WooCommerce shop!
 - Steem (STEEM)
 - Steem Backed Dollars (SBD)
 
+## Limitation
+- Currently works USD but will support with various fiat currencies in the next versions.
+
 ## Note
 You will <strong>NOT</strong> require any Steem keys for this plugin to work. You just have to provide your Steem username and you're good to go.
 

@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function wc_steem_get_currencies() {
 	return apply_filters('wc_steem_currencies', array(
 		'STEEM' => 'Steem',
+		'SBD' => 'Steem Backed Dollar',
 	));
 }
 

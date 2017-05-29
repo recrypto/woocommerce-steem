@@ -17,7 +17,7 @@ You will <strong>NOT</strong> require any Steem keys for this plugin to work. Yo
 ![Screenshot #2](https://steemitimages.com/0x0/https://imgoat.com/uploads/8f13708210/19684.png)
 
 WooCommerce Settings (Backend)
-![Screenshot #3)(https://imgoat.com/uploads/8f13708210/19683.png)
+![Screenshot #3](https://imgoat.com/uploads/8f13708210/19683.png)
 
 ## Thanks
 [@arcange](https://steemit.com/@arcange) for [SteemSQL](https://steemsql.com)

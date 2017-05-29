@@ -11,6 +11,9 @@ Accept Steem payments directly to your WooCommerce shop!
 ## Limitation
 - Currently works USD but will support with various fiat currencies in the next versions.
 
+## How does it confirm Steem Transfers?
+It uses WordPress CRON every 5 minutes to call WooCommerce orders that uses payment method as Steem and calls an API via Steemful (Another application I'm building around WordPress ecosystem) powered by SteemSQL.
+
 ## Note
 You will <strong>NOT</strong> require any Steem keys for this plugin to work. You just have to provide your Steem username and you're good to go.
 

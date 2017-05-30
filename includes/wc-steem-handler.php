@@ -99,7 +99,7 @@ class WC_Steem_Handler {
 			return;
 		}
 
-		if ($order->get_payment_method() != 'wc_steem') {
+		if ($order->payment_method != 'wc_steem') {
 			return;
 		}
 

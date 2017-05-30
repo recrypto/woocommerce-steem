@@ -29,7 +29,7 @@ class WC_Steem_Transaction_Transfer {
 			$order = wc_get_order($order);
 		}
 
-		if (empty($order) || is_wp_error($order) || $order->get_payment_method() != 'wc_steem') {
+		if (empty($order) || is_wp_error($order) || $order->payment_method != 'wc_steem') {
 			return $transfer;
 		}
 

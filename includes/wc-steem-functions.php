@@ -111,7 +111,7 @@ function wc_steem_get_rate($currency_symbol) {
  */
 function wc_steem_rate_convert($amount, $currency_symbol) {
 	$rate = wc_steem_get_rate($currency_symbol);
-	return apply_filters('wc_steem_rate_convert', $rate > 0 ? $amount / $rate : 0, $amount, $currency_symbol);
+	return apply_filters('wc_steem_rate_convert', ($rate > 0 ? round($amount / $rate, 3, PHP_ROUND_HALF_UP) : 0), $amount, $currency_symbol);
 }
 
 

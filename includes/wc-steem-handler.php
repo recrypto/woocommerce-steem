@@ -29,7 +29,9 @@ class WC_Steem_Handler {
 			wp_schedule_event(time(), '5min', 'wc_steem_update_orders');
 		}
 
-		self::update_rates();
+		if (empty(get_option('wc_steem_rates'))) {
+			self::update_rates();
+		}
 
 		add_action('wc_steem_update_rates', array($instance, 'update_rates'));
 		add_action('wc_steem_update_orders', array($instance, 'update_orders'));
@@ -56,8 +58,8 @@ class WC_Steem_Handler {
 			}
 
 			// Fail-safe: If ever it fails to fetch the new rates, keep the old rates
-			if ( ! empty($rates)) {
-				update_option('wc_steem_rates', apply_filters('wc_steem_update_rates', $rates));
+			if (is_array($rates) && $rates) {
+				update_option('wc_steem_rates', $rates);
 			}
 		}
 	}

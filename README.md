@@ -10,6 +10,7 @@ Accept Steem payments directly to your WooCommerce shop!
 
 ## Limitation
 - Currently supports different fiat currencies such as: AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, ZAR, EUR
+- If none of the fiat currency listed above, it will default 1:1 conversion rate.
 
 ## How does it confirm Steem Transfers?
 It uses WordPress CRON every 5 minutes to call WooCommerce orders that uses payment method as Steem and calls an API via Steemful (Another application I'm building around WordPress ecosystem) powered by SteemSQL.

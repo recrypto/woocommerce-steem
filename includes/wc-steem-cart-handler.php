@@ -24,20 +24,28 @@ class WC_Steem_Cart_Handler {
 		}
 
 		$amounts = array();
+		$from_currency_symbol = wc_steem_get_base_fiat_currency();
 
 		if ($currencies = wc_steem_get_currencies()) {
-			foreach ($currencies as $currency_symbol => $currency) {
-				$amount = wc_steem_rate_convert($cart->total, $currency_symbol);
+			foreach ($currencies as $to_currency_symbol => $currency) {
+				$amount = wc_steem_rate_convert($cart->total, $from_currency_symbol, $to_currency_symbol);
 
 				if ($amount <= 0) {
 					continue;
 				}
 
-				if (WC_Steem::get('amount_currency') == $currency_symbol) {
+				if (WC_Steem::get('amount_currency') == $to_currency_symbol) {
 					WC_Steem::set('amount', $amount);
 				}
 
-				$amounts[$currency_symbol] = $amount;
+				$amounts["{$to_currency_symbol}_{$from_currency_symbol}"] = $amount;
+			}
+
+			foreach ($currencies as $to_currency_symbol => $currency) {
+				if ( ! isset($amounts["{$to_currency_symbol}_{$from_currency_symbol}"])) {
+					$amounts["{$to_currency_symbol}_{$from_currency_symbol}"] = $cart->total;
+					WC_Steem::set('amount', $cart->total);
+				}
 			}
 
 			WC_Steem::set('amounts', $amounts);

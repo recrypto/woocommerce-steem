@@ -275,13 +275,14 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 	public function validate_fields() {
 
 		$amount_currency = isset($_POST[$this->field_id('amount_currency')]) ? $_POST[$this->field_id('amount_currency')] : 'STEEM';
+		$from_currency_symbol = wc_steem_get_base_fiat_currency();
 
 		if (wc_steem_is_accepted_currency($amount_currency)) {
 			WC_Steem::set_amount_currency($amount_currency);
 
 			if ($amounts = WC_Steem::get('amounts')) {
-				if (isset($amounts[WC_Steem::get_amount_currency()])) {
-					WC_Steem::set_amount($amounts[WC_Steem::get_amount_currency()]);
+				if (isset($amounts[WC_Steem::get_amount_currency() . '_' . $from_currency_symbol])) {
+					WC_Steem::set_amount($amounts[WC_Steem::get_amount_currency() . '_' . $from_currency_symbol]);
 				}
 			}
 		}

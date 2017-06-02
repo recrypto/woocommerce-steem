@@ -26,7 +26,7 @@ class WC_Steem_Order_Handler {
 	}
 
 	public static function payment_details($order_id) {
-		$order = wc_get_order($order_id); 
+		$order = wc_get_order($order_id);
 
 		if ($order->payment_method != 'wc_steem') 
 			return; ?>

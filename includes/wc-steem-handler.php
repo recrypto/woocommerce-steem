@@ -38,7 +38,7 @@ class WC_Steem_Handler {
 	}
 
 	public static function update_rates() {
-		$rates = array();
+		$rates = get_option('wc_steem_rates', array());
 
 		$response = wp_remote_get('https://poloniex.com/public?command=returnTicker');
 
@@ -46,22 +46,39 @@ class WC_Steem_Handler {
 			$tickers = json_decode(wp_remote_retrieve_body($response), true);
 
 			if (isset($tickers['USDT_BTC']['last'])) {
-				$rates['BTC'] = $tickers['USDT_BTC']['last'];
+				$rates['BTC_USD'] = $tickers['USDT_BTC']['last'];
 
 				if (isset($tickers['BTC_STEEM']['last'])) {
-					$rates['STEEM'] = $tickers['BTC_STEEM']['last'] * $rates['BTC'];
+					$rates['STEEM_USD'] = $tickers['BTC_STEEM']['last'] * $rates['BTC_USD'];
 				}
 
 				if (isset($tickers['BTC_SBD']['last'])) {
-					$rates['SBD'] = $tickers['BTC_SBD']['last'] * $rates['BTC'];
+					$rates['SBD_USD'] = $tickers['BTC_SBD']['last'] * $rates['BTC_USD'];
 				}
 			}
+		}
 
-			// Fail-safe: If ever it fails to fetch the new rates, keep the old rates
-			if (is_array($rates) && $rates) {
-				update_option('wc_steem_rates', $rates);
+		$response = wp_remote_get('http://api.fixer.io/latest?base=USD');
+
+		if (is_array($response)) {
+			$tickers = json_decode(wp_remote_retrieve_body($response), true);
+
+			if (isset($tickers['rates']) && $tickers['rates']) {
+				foreach ($tickers['rates'] as $to_currency_symbol => $to_currency_value) {
+					$rates["USD_{$to_currency_symbol}"] = $to_currency_value;
+
+					if (isset($rates['STEEM_USD'])) {
+						$rates["STEEM_{$to_currency_symbol}"] = $rates['STEEM_USD'] * $to_currency_value;
+					}
+
+					if (isset($rates['SBD_USD'])) {
+						$rates["SBD_{$to_currency_symbol}"] = $rates['SBD_USD'] * $to_currency_value;
+					}
+				}
 			}
 		}
+
+		update_option('wc_steem_rates', $rates);
 	}
 
 	public static function update_orders() {

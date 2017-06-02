@@ -80,10 +80,53 @@ function wc_steem_is_accepted_currency($currency_symbol) {
 }
 
 
+# Fiat
+
+/**
+ * Retrieve shop's base fiat currency symbol
+ *
+ * @since 1.0.1
+ * @return string $fiat_currency
+ */
+function wc_steem_get_base_fiat_currency() {
+	$fiat_currency = wc_get_currency_symbol();
+
+	if ( ! in_array($fiat_currency, wc_steem_get_accepted_fiat_currencies())) {
+		// $fiat_currency = apply_filters('wc_steem_base_default_fiat_currency', 'USD');
+	}
+
+	return apply_filters('wc_steem_base_fiat_currency', $fiat_currency);
+}
+
+/**
+ * Retrieve list of accept fiat currencies
+ *
+ * @since 1.0.1
+ * @return array
+ */
+function wc_steem_get_accepted_fiat_currencies() {
+	return apply_filters('wc_steem_accepted_fiat_currencies', array(
+		'AUD', 'BGN', 'BRL', 'CAD', 'CHF', 'CNY', 'CZK', 'DKK', 'GBP', 'HKD', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PLN', 'RON', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'ZAR', 'EUR',
+	));
+}
+
+/**
+ * Check fiat currency is accepted on WooCommerce shop
+ *
+ * @since 1.0.1
+ * @param string $currency_symbol
+ * @return boolean
+ */
+function wc_steem_is_accepted_fiat_currency($currency_symbol) {
+	$currencies = wc_steem_get_accepted_fiat_currencies();
+	return in_array($currency_symbol, $currencies);
+}
+
+
 # Rates
 
 /**
- * Retrieve Steem rates in USD
+ * Retrieve Steem rates
  *
  * @since 1.0.0
  * @return array
@@ -96,22 +139,45 @@ function wc_steem_get_rates() {
  * Retrieve rate
  *
  * @since 1.0.0
+ * @param string $from_currency_symbol
+ * @param string $to_currency_symbol
  * @return float
  */
-function wc_steem_get_rate($currency_symbol) {
+function wc_steem_get_rate($from_currency_symbol, $to_currency_symbol) {
 	$rates = wc_steem_get_rates();
-	return apply_filters('wc_steem_rate', isset($rates[$currency_symbol]) ? $rates[$currency_symbol] : null, $currency_symbol);
+
+	$from_currency_symbol = strtoupper($from_currency_symbol);
+	$to_currency_symbol = strtoupper($to_currency_symbol);
+
+	$pair_currency_symbol = "{$to_currency_symbol}_{$from_currency_symbol}";
+
+	return apply_filters(
+		'wc_steem_rate', 
+		(isset($rates[$pair_currency_symbol]) ? $rates[$pair_currency_symbol] : null), 
+		$from_currency_symbol, 
+		$to_currency_symbol
+	);
 }
 
 /**
  * Convert the amount in USD to crypto amount
  *
  * @since 1.0.0
+ * @param float $amount
+ * @param string $from_currency_symbol
+ * @param string $to_currency_symbol
  * @return float
  */
-function wc_steem_rate_convert($amount, $currency_symbol) {
-	$rate = wc_steem_get_rate($currency_symbol);
-	return apply_filters('wc_steem_rate_convert', ($rate > 0 ? round($amount / $rate, 3, PHP_ROUND_HALF_UP) : 0), $amount, $currency_symbol);
+function wc_steem_rate_convert($amount, $from_currency_symbol, $to_currency_symbol) {
+	$rate = wc_steem_get_rate($from_currency_symbol, $to_currency_symbol);
+
+	return apply_filters(
+		'wc_steem_rate_convert', 
+		($rate > 0 ? round($amount / $rate, 3, PHP_ROUND_HALF_UP) : 0), 
+		$amount, 
+		$from_currency_symbol, 
+		$to_currency_symbol
+	);
 }
 
 

@@ -37,3 +37,18 @@ function wc_get_order_user_id($order) {
 }
 
 endif;
+
+
+if ( ! function_exists('wc_get_currency_symbol')) :
+
+/**
+ * Retrieve shop's base currency symbol
+ *
+ * @since 1.0.1
+ * @return string
+ */
+function wc_get_currency_symbol() {
+	return apply_filters('wc_currency_symbol', get_option('woocommerce_currency', 'USD'));
+}
+
+endif;

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Steem
- * Plugin URI: https://steemit.com/@recrypto
+ * Plugin URI: https://github.com/recrypto/woocommerce-steem
  * Description: Accept Steem payments directly to your shop (Currencies: STEEM, SBD).
  * Version: 1.0.1
  * Author: ReCrypto

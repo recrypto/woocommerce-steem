@@ -9,7 +9,7 @@ Accept Steem payments directly to your WooCommerce shop!
 - Steem Backed Dollars (SBD)
 
 ## Limitation
-- Currently works USD but will support with various fiat currencies in the next versions.
+- Currently supports different fiat currencies such as: AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, GBP, HKD, HRK, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, ZAR, EUR
 
 ## How does it confirm Steem Transfers?
 It uses WordPress CRON every 5 minutes to call WooCommerce orders that uses payment method as Steem and calls an API via Steemful (Another application I'm building around WordPress ecosystem) powered by SteemSQL.

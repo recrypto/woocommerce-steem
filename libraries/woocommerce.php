@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /** WooCommerce helper functions *****************************************************************/
 
 
-if ( ! function_exists('wc_get_order_user_id')) :
+if ( ! function_exists('wc_steem_get_order_user_id')) :
 
 /**
  * Retrieve order's custom user id
@@ -23,7 +23,7 @@ if ( ! function_exists('wc_get_order_user_id')) :
  * @param mixed $order
  * @return int $user_id
  */
-function wc_get_order_user_id($order) {
+function wc_steem_get_order_user_id($order) {
 
 	if (is_int($order)) {
 		$order_id = $order;
@@ -39,7 +39,7 @@ function wc_get_order_user_id($order) {
 endif;
 
 
-if ( ! function_exists('wc_get_currency_symbol')) :
+if ( ! function_exists('wc_steem_get_currency_symbol')) :
 
 /**
  * Retrieve shop's base currency symbol
@@ -47,7 +47,7 @@ if ( ! function_exists('wc_get_currency_symbol')) :
  * @since 1.0.1
  * @return string
  */
-function wc_get_currency_symbol() {
+function wc_steem_get_currency_symbol() {
 	return apply_filters('wc_currency_symbol', get_option('woocommerce_currency', 'USD'));
 }
 

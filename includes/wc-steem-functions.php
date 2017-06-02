@@ -89,7 +89,7 @@ function wc_steem_is_accepted_currency($currency_symbol) {
  * @return string $fiat_currency
  */
 function wc_steem_get_base_fiat_currency() {
-	$fiat_currency = wc_get_currency_symbol();
+	$fiat_currency = wc_steem_get_currency_symbol();
 
 	if ( ! in_array($fiat_currency, wc_steem_get_accepted_fiat_currencies())) {
 		// $fiat_currency = apply_filters('wc_steem_base_default_fiat_currency', 'USD');

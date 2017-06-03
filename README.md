@@ -1,5 +1,4 @@
-# Official WordPress Plugin
-[WooCommerce Steem](https://wordpress.org/extend/plugins/woo-steem)
+![WooCommerce Steem](https://steemitimages.com/0x0/https://ps.w.org/woo-steem/assets/banner-1544x500.png?rev=1670250)
 
 # WooCommerce Steem
 Accept Steem payments directly to your WooCommerce shop!
@@ -25,6 +24,9 @@ You will <strong>NOT</strong> require any Steem keys for this plugin to work. Yo
 
 WooCommerce Settings (Backend)
 ![Screenshot #3](https://imgoat.com/uploads/8f13708210/19683.png)
+
+## Links
+- [WordPress Plugin Repository](https://wordpress.org/extend/plugins/woo-steem)
 
 ## Thanks
 - [@arcange](https://steemit.com/@arcange) for [SteemSQL](https://steemsql.com)

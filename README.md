@@ -1,5 +1,5 @@
-# NOTICE
-PLEASE DO NOT USE ON PRODUCTION. WE'RE CURRENTLY DOING MORE DEVELOPMENT TESTS.
+# Official WordPress Plugin
+[WooCommerce Steem](https://wordpress.org/extend/plugins/woo-steem)
 
 # WooCommerce Steem
 Accept Steem payments directly to your WooCommerce shop!

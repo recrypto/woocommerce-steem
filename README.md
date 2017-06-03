@@ -28,6 +28,7 @@ WooCommerce Settings (Backend)
 
 ## Thanks
 [@arcange](https://steemit.com/@arcange) for [SteemSQL](https://steemsql.com)
+[@furion](https://steemit.com/@furion) for SteemData (Fallback when SteemSQL doesn't yet index Steem blockchain)
 
 ## Support
 Please support me by following me on Steem [@recrypto](https://steemit.com/@recrypto) or if you feel like donating, that would really help a lot on my future Steem developments around WordPress ecosystem. :)

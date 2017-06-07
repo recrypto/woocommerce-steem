@@ -88,7 +88,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 			'accepted_currencies' => array(
 				'title'       => __('Accepted Currencies', 'wc-steem'),
 				'type'        => 'multiselect',
-				'description' => __('This is your Steem username where your customers will pay you.', 'wc-steem'),
+				'description' => __('Select the Steem currencies you will accept.', 'wc-steem'),
 				'default'     => '',
 				'desc_tip'    => true,
 				'options'     => $accepted_currencies,

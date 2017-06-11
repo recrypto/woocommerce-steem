@@ -134,13 +134,13 @@ class WC_Steem_Handler {
 			// Add intuitive order note
 			$order->add_order_note(
 				sprintf(
-					__('WooCommerce Steem payment completed with transaction #%d and transfer #%d with the amount of %s %s by %s on %s.', 'wc-steem'), 
+					__('WooCommerce Steem payment completed with transaction (ID: %s) and transfer (ID: %s) with the amount of %s %s by %s on %s.', 'wc-steem'), 
 					$transfer['tx_id'], 
 					$transfer['ID'], 
 					$transfer['amount'], 
 					$transfer['amount_symbol'], 
 					$transfer['from'], 
-					$transfer['timestamp']
+					date('Y-m-d H:i:s', $transfer['timestamp'])
 				)
 			);
 

@@ -59,9 +59,9 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 
 		$this->form_fields = array(
 			'enabled' => array(
-				'title'   => __( 'Enable/Disable', 'wc-steem' ),
+				'title'   => __('Enable/Disable', 'wc-steem'),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable WooCommerce Steem', 'wc-steem' ),
+				'label'   => __('Enable WooCommerce Steem', 'wc-steem'),
 				'default' => 'yes'
 			),
 			'title' => array(
@@ -93,6 +93,12 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 				'desc_tip'    => true,
 				'options'     => $accepted_currencies,
 				'select_buttons' => true,
+			),
+			'show_insightful' => array(
+				'title'   => __('Enable insightful prices on products', 'wc-steem'),
+				'type'    => 'checkbox',
+				'label'   => __('Shows an insightful prices on products that displays the accepted currencies such as SBD and/or STEEM rates converted from the product price.', 'wc-steem'),
+				'default' => 'no'
 			),
 		);
 	}

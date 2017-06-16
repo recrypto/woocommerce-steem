@@ -4,7 +4,7 @@ Donate link: https://steemit.com/@recrypto/
 Tags: woocommerce, woo commerce, payment method, steem, sbd
 Requires at least: 4.1
 Tested up to: 4.7.5
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -81,6 +81,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/recrypto/wooc
 2. Steem Payment Details (Frontend)
 3. Steem Transaction Details (Frontend)
 4. WooCommerce Settings (Backend)
+5. Showing an "insightful" prices for accepted currencies in SBD and/or STEEM based on product price (Frontend)
+6. Showing an "insightful" prices for accepted currencies in SBD and/or STEEM based on product price on sale (Frontend)
+7. Showing an "insightful" prices for accepted currencies in SBD and/or STEEM based on product price as variation (Frontend)
+8. Showing an "insightful" prices for accepted currencies in SBD and/or STEEM based on product price as variation on sale (Frontend)
 
 
 == Changelog ==
@@ -92,9 +96,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/recrypto/wooc
 * Fixed Steem Transaction Transfer data in WooCommerce Order notes in admin
 * Fixed date format issue in WooCommerce Order page
 
+= 1.0.4 - 2017-06-16 =
+* Added an insightful prices on product templates that shows the accepted currencies such as SBD and/or STEEM rates converted from the product price
+
 
 == Upgrade Notice ==
 
-= 1.0.3 - 2017-06-11 =
-* Fixed Steem Transaction Transfer data in WooCommerce Order notes in admin
-* Fixed date format issue in WooCommerce Order page
+= 1.0.4 - 2017-06-16 =
+* Added an insightful prices on product templates that shows the accepted currencies such as SBD and/or STEEM rates converted from the product price

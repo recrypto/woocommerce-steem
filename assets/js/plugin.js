@@ -17,4 +17,12 @@
 			$('#wc_steem-amount').html($amount);
 		}
 	});
+
+	$(document).on('show_variation', '.variations_form', function(event, variation) {
+		var $prices_html = 'prices_html' in variation ? variation.prices_html : null;
+
+		if ($prices_html != null) {
+			$(this).find('.woocommerce-variation-price').append($prices_html);
+		}
+	});
 })(jQuery);

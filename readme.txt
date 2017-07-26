@@ -4,7 +4,7 @@ Donate link: https://steemit.com/@recrypto/
 Tags: woocommerce, woo commerce, payment method, steem, sbd
 Requires at least: 4.1
 Tested up to: 4.7.5
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,8 +99,11 @@ Yes you can! Join in on our [GitHub repository](https://github.com/recrypto/wooc
 = 1.0.4 - 2017-06-16 =
 * Added an insightful prices on product templates that shows the accepted currencies such as SBD and/or STEEM rates converted from the product price
 
+= 1.0.5 - 2017-07-26 =
+* Fixed return context when a function call is supplied	
+
 
 == Upgrade Notice ==
 
-= 1.0.4 - 2017-06-16 =
-* Added an insightful prices on product templates that shows the accepted currencies such as SBD and/or STEEM rates converted from the product price
+= 1.0.5 - 2017-07-26 =
+* Fixed return context when a function call is supplied	

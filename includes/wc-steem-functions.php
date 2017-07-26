@@ -64,7 +64,8 @@ function wc_steem_get_accepted_currencies() {
  * @return array
  */
 function wc_steem_has_accepted_currencies() {
-	return ( ! empty(wc_steem_get_accepted_currencies()));
+	$currencies = wc_steem_get_accepted_currencies();
+	return ( ! empty($currencies));
 }
 
 /**
